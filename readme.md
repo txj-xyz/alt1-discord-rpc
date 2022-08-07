@@ -1,15 +1,24 @@
-# Minimal Alt1/webpack/typescript example
+# Discord RPC Integration for Runescape 3
 
-how to use
-```sh
-#to initialize the repo and install dependencies
+The goal of this is to learn Alt1 and have a status for Discord to show for each activity you're doing in Runescape 3.
+
+
+# Build Instructions
+
+Install
+```console
 npm i
-#build
-npm run build
-#alternatively to auto-rebuild when source files are changed
+```
+
+Build on File Save
+```console
 npm run watch
 ```
 
-You can open `./dist/index.html` in your browser and it will give some basic functionality based one pasted images.
+Build
+```console
+npm run build
+```
 
-You can also open it in the Alt1 browser and click the `add app` button that appears to get some basic alt1 functionality.
+
+Build files are output to `dist/`

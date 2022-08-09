@@ -1,24 +1,20 @@
 import * as a1lib from "@alt1/base";
-import BossTimerReader from "@alt1/bosstimer";
+import type Activity from './base/Activity';
+import { BossTime } from './modules/BossTimer'
 
 require("!file-loader?name=[name].[ext]!./index.html");
 require("!file-loader?name=[name].[ext]!./appconfig.json");
 
 var output = document.getElementById("output");
 let startDate = Date.now();
-let bossTime = new BossTimerReader();
 
-export interface currentState { 
-	bossTimer?: null | object,
-	activity?: null | string;
-	skill?: null | string;
-}
-
+// console.log(new BossTime())
 
 setInterval(capture, 500)
 
 
 function capture() {
+    console.log('fired')
     if (!window.alt1) {
         output.insertAdjacentHTML("beforeend", `<div>You need to run this page in alt1 to capture the screen</div>`);
         return;
@@ -28,16 +24,18 @@ function capture() {
         return;
     }
 
+    const l = BossTime.get()
+    console.log(l)
+
 }
 
-export default function checkBossTimer() {
-	let _bossTimer = bossTime.find();
-    if (_bossTimer) {
-		this.currentState.bossTimer = _bossTimer
-        let result = bossTime.read();
-        // timerElement.innerHTML = String(result.time);
-    }
-}
+// export default function checkBossTimer() {
+// 	let _bossTimer = bossTime.find();
+//     if (_bossTimer) {
+//         let result = bossTime.read() ?? null;
+//         return result
+//     }
+// }
 
 
 //check if we are running inside alt1 by checking if the alt1 global exists
